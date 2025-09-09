@@ -17,7 +17,7 @@ function Login() {
     setError("");
     try {
       const res = await axios.post(
-        "http://localhost:5080/api/user/login",
+        "https://naturenest-y4n0.onrender.com/api/user/login",
         form,
         { withCredentials: true }
       );
@@ -34,7 +34,7 @@ function Login() {
       const profile = googleUser.user;
 
       await axios.post(
-        "http://localhost:5080/api/user/google-login",
+        "https://naturenest-y4n0.onrender.com/api/user/google-login",
         { email: profile.email, username: profile.displayName },
         { withCredentials: true }
       );
