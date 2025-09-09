@@ -21,7 +21,7 @@ export default function AddressPage() {
   // Fetch addresses
   const loadAddresses = async () => {
     try {
-      const res = await axios.get("http://localhost:5080/api/address", {
+      const res = await axios.get("https://naturenest-y4n0.onrender.com/api/address", {
         withCredentials: true,
       });
       setAddresses(res.data || []);
@@ -45,7 +45,7 @@ export default function AddressPage() {
       async ({ coords }) => {
         try {
           const res = await axios.get(
-            `http://localhost:5080/api/location/reverse?lat=${coords.latitude}&lon=${coords.longitude}`,
+            `https://naturenest-y4n0.onrender.com/api/location/reverse?lat=${coords.latitude}&lon=${coords.longitude}`,
             { withCredentials: true }
           );
           const address = res.data.address || {};
@@ -83,11 +83,11 @@ export default function AddressPage() {
     try {
       const payload = { ...form };
       if (editId)
-        await axios.put(`http://localhost:5080/api/address/${editId}`, payload, {
+        await axios.put(`https://naturenest-y4n0.onrender.com/api/address/${editId}`, payload, {
           withCredentials: true,
         });
       else
-        await axios.post("http://localhost:5080/api/address", payload, {
+        await axios.post("https://naturenest-y4n0.onrender.com/api/address", payload, {
           withCredentials: true,
         });
 
