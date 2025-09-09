@@ -15,6 +15,7 @@ const texts = {
     productDropdown: "Products",
     cart: "Cart",
     history: "History",
+    allProducts: "All Products",
   },
   bn: {
     heroTitle: "নেচার নেস্ট-এ স্বাগতম",
@@ -27,6 +28,7 @@ const texts = {
     productDropdown: "পণ্য",
     cart: "কার্ট",
     history: "ইতিহাস",
+    allProducts: "সমস্ত পণ্য",
   },
 };
 
@@ -51,7 +53,7 @@ export default function LandingPage() {
 
   const handleLogout = async () => {
     try {
-      await api.post("https://naturenest-y4n0.onrender.com/api/user/logout", {}, { withCredentials: true });
+      await api.post("/api/user/logout", {}, { withCredentials: true });
       window.location.reload();
     } catch (err) {
       console.error("Logout failed:", err);
@@ -81,6 +83,12 @@ export default function LandingPage() {
 
               {productDropdownOpen && (
                 <div className="absolute left-0 z-50 w-40 mt-2 bg-white border rounded-lg shadow-lg">
+                  <Link
+                    to="/all-product"
+                    className="block px-4 py-2 text-green-900 hover:bg-green-50"
+                  >
+                    {t.allProducts}
+                  </Link>
                   <Link
                     to="/product-cart"
                     className="block px-4 py-2 text-green-900 hover:bg-green-50"
@@ -175,7 +183,7 @@ export default function LandingPage() {
           <FaHome className="mb-1 text-lg" /> Home
         </Link>
         <Link to="/all-product" className="flex flex-col items-center text-sm">
-          <FaListUl className="mb-1 text-lg" /> Products
+          <FaListUl className="mb-1 text-lg" /> {t.productDropdown}
         </Link>
         <Link to="/address" className="flex flex-col items-center text-sm">
           <FaMapMarkerAlt className="mb-1 text-lg" /> Address
