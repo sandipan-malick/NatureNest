@@ -12,7 +12,7 @@ export default function ProductHistory() {
   // 🔹 Protected Route: check if user is logged in
   const checkAuth = async () => {
     try {
-      await axios.get("http://localhost:5080/product-history", {
+      await axios.get("https://naturenest-y4n0.onrender.com/product-history", {
         withCredentials: true,
       });
     } catch (err) {
@@ -23,7 +23,7 @@ export default function ProductHistory() {
   // Fetch order history
   const fetchOrders = async () => {
     try {
-      const res = await axios.get("http://localhost:5080/api/cart/history", {
+      const res = await axios.get("https://naturenest-y4n0.onrender.com/api/cart/history", {
         withCredentials: true,
       });
       setOrders(res.data || []);
