@@ -9,7 +9,7 @@ export default function AdminLogin() {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:5080/api/admin/login",
+      const res = await axios.post("https://naturenest-y4n0.onrender.com/api/admin/login",
         { email, password },
         { withCredentials: true }
       );
