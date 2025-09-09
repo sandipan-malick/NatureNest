@@ -2,7 +2,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://localhost:5080",
+  baseURL: "https://naturenest-y4n0.onrender.com",
   withCredentials: true, // always send cookies
 });
 
