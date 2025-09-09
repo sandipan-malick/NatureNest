@@ -11,7 +11,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'http://localhost:5080', // your deployed backend
+        target: 'https://naturenest-y4n0.onrender.com', // your deployed backend
         changeOrigin: true,
         secure: false,
       },
