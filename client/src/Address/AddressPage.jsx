@@ -109,7 +109,7 @@ export default function AddressPage() {
   const handleDelete = async (id) => {
     if (!window.confirm("Delete this address?")) return;
     try {
-      await axios.delete(`http://localhost:5080/api/address/${id}`, {
+      await axios.delete(`https://naturenest-y4n0.onrender.com/api/address/${id}`, {
         withCredentials: true,
       });
       setAddresses(addresses.filter((a) => a._id !== id));
