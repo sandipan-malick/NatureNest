@@ -27,8 +27,7 @@ const app = express();
 
 // Allow origins (update when you deploy frontend)
 const allowedOrigins = [
-    "http://localhost:5173",
-    "http://localhost:5080",
+    "https://nature-nest-internship-project.netlify.app",
 ];
 
 app.use(
