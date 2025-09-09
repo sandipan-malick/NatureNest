@@ -15,7 +15,7 @@ export default function AdminOrder() {
   useEffect(() => {
     const checkAdminAuth = async () => {
       try {
-        await axios.get("http://localhost:5080/admin-order", {
+        await axios.get("https://naturenest-y4n0.onrender.com/admin-order", {
           withCredentials: true,
         });
       } catch (err) {
@@ -32,7 +32,7 @@ export default function AdminOrder() {
     const fetchOrders = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:5080/api/cart/admin-order",
+          "https://naturenest-y4n0.onrender.com/api/cart/admin-order",
           { withCredentials: true }
         );
         setOrders(res.data || []);
