@@ -18,7 +18,7 @@ export default function ProductCart() {
 
   const checkAuth = async () => {
     try {
-      await axios.get("http://localhost:5080/product-cart", { withCredentials: true });
+      await axios.get("https://naturenest-y4n0.onrender.com/product-cart", { withCredentials: true });
     } catch (err) {
       navigate("/login");
     }
@@ -27,8 +27,8 @@ export default function ProductCart() {
   const fetchData = async () => {
     try {
       const [cartRes, addressesRes] = await Promise.all([
-        axios.get("http://localhost:5080/api/cart", { withCredentials: true }),
-        axios.get("http://localhost:5080/api/address", { withCredentials: true }),
+        axios.get("https://naturenest-y4n0.onrender.com/api/cart", { withCredentials: true }),
+        axios.get("https://naturenest-y4n0.onrender.com/api/address", { withCredentials: true }),
       ]);
       setCartItems(cartRes.data.items || []);
       setAddresses(addressesRes.data || []);
@@ -50,7 +50,7 @@ export default function ProductCart() {
 
   const handleRemove = async (id) => {
     try {
-      await axios.delete(`http://localhost:5080/api/cart/${id}`, { withCredentials: true });
+      await axios.delete(`https://naturenest-y4n0.onrender.com/api/cart/${id}`, { withCredentials: true });
       setCartItems((prev) => prev.filter((item) => item._id !== id));
     } catch {
       alert("Failed to remove product.");
@@ -62,7 +62,7 @@ export default function ProductCart() {
   const confirmOrder = async (paymentId) => {
     try {
       await axios.post(
-        "http://localhost:5080/api/cart/confirm",
+        "https://naturenest-y4n0.onrender.com/api/cart/confirm",
         { paymentId, addressId: selectedAddressId },
         { withCredentials: true }
       );
@@ -82,7 +82,7 @@ export default function ProductCart() {
       paymentCompletedRef.current = false;
 
       const { data: order } = await axios.post(
-        "http://localhost:5080/api/payment",
+        "https://naturenest-y4n0.onrender.com/api/payment",
         { amount: totalPrice },
         { withCredentials: true }
       );
