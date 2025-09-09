@@ -24,7 +24,7 @@ function AdminProductDashboard() {
     const checkAdminAuth = async () => {
       try {
         await axios.get(
-          "http://localhost:5080/admin-product-dashboard",
+          "https://naturenest-y4n0.onrender.com/admin-product-dashboard",
           { withCredentials: true }
         );
       } catch (err) {
@@ -44,7 +44,7 @@ function AdminProductDashboard() {
   const fetchProducts = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:5080/api/product",
+        "https://naturenest-y4n0.onrender.com/api/product",
         { withCredentials: true }
       );
       setProducts(res.data);
@@ -60,7 +60,7 @@ function AdminProductDashboard() {
     e.preventDefault();
     try {
       await axios.post(
-        "http://localhost:5080/api/product",
+        "https://naturenest-y4n0.onrender.com/api/product",
         {
           ...form,
           price: Number(form.price),
@@ -90,7 +90,7 @@ function AdminProductDashboard() {
   const handleDelete = async (id) => {
     try {
       await axios.delete(
-        `http://localhost:5080/api/product/${id}`,
+        `https://naturenest-y4n0.onrender.com/api/product/${id}`,
         { withCredentials: true }
       );
       setProducts((prev) => prev.filter((p) => p._id !== id));
