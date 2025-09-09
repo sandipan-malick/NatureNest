@@ -20,7 +20,7 @@ function Register() {
     e.preventDefault();
     setError("");
     try {
-      const res = await axios.post("http://localhost:5080/api/user/check-email", {
+      const res = await axios.post("https://naturenest-y4n0.onrender.com/api/user/check-email", {
         email: form.email,
       });
       if (res.status === 200) {
@@ -35,7 +35,7 @@ function Register() {
     try {
       const result = await signInWithGooglePopup();
       const googleUser = result.user;
-      const res = await axios.post("http://localhost:5080/api/user/google-register", {
+      const res = await axios.post("https://naturenest-y4n0.onrender.com/api/user/google-register", {
         email: googleUser.email,
         username: googleUser.displayName,
       });
